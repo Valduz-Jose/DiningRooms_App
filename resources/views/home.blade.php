@@ -17,6 +17,12 @@
         </div>
     </div>
 </div>
+
+<div class="card-body">
+    <h4>Bienvenido . {{ auth()->user()->name }} </h4>
+    <h4>Ubicacion . {{ auth()->user()->ubicacion }} </h4>
+</div>
+
 {{-- logout --}}
 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
     <a class="dropdown-item" href="{{ route('logout') }}"

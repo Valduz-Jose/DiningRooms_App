@@ -38,6 +38,15 @@
                             <input type="text" id="form3Example3" class="form-control form-control-lg"
                                 placeholder="Ingrese su nombre" name="name" />
                         </div>
+                        <!-- Select ubicacion -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="ubicacion-select">Ubicación</label>
+                            <select class="form-select form-select-lg" name="ubicacion" id="ubicacion">
+                                <option value="bramon">Bramon</option>
+                                <option value="palmita">Palmita</option>
+                                <option value="5patio">5to Patio</option>
+                            </select>
+                        </div>
 
                         <!-- Email input -->
                         <div class="form-outline mb-4">
