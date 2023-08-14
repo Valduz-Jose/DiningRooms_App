@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\RegisterPersonController;
+use App\Http\Controllers\RegisterVivereController;
+use App\Http\Controllers\StatisticController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,15 +27,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('registervivere', function () {
-    return "Registros";
-});
-Route::get('registerperson', function () {
-    return "Registros";
-});
-Route::get('Statistic', function () {
-    return "Estadisticas";
-});
-Route::get('Inventory', function () {
-    return "Inventario";
-});
+Route::get('/registervivere', [RegisterVivereController::class, 'index'])->name('registervivere');
+Route::get('/registerperson', [RegisterPersonController::class, 'index'])->name('registerperson');
+Route::get('/statistic', [StatisticController::class, 'index'])->name('statistic');
+Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory');
