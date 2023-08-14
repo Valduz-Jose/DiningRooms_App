@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('registervivere', function () {
+    return "Registros";
+});
+Route::get('registerperson', function () {
+    return "Registros";
+});
+Route::get('Statistic', function () {
+    return "Estadisticas";
+});
+Route::get('Inventory', function () {
+    return "Inventario";
+});
