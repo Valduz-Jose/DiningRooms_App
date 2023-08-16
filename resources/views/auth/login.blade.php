@@ -1,4 +1,87 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Título</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{{ asset('img/logo2.ico') }}">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* Estilos personalizados */
+        /* Agrega aquí tus estilos personalizados si deseas */
+    </style>
+</head>
+
+<body>
+
+    <section class="vh-100 d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <img src="{{ asset('img/login.svg') }}" class="img-fluid" alt="Imagen de ejemplo">
+                </div>
+                <div class="col-md-6">
+                    <form action="{{ route('login') }}" method="post">
+                        @csrf
+                        <h2 class="text-center mb-4">Iniciar Sesión</h2>
+
+                        <div class="mb-3">
+                            <label for="form3Example3" class="form-label">Correo Electrónico</label>
+                            <input type="email" id="form3Example3" class="form-control"
+                                placeholder="Ingrese un correo válido" name="email" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="form3Example4" class="form-label">Contraseña</label>
+                            <input type="password" id="form3Example4" class="form-control"
+                                placeholder="Ingrese la contraseña" name="password" />
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="form2Example3" />
+                            <label class="form-check-label" for="form2Example3">Recuérdame</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg w-100">Iniciar Sesión</button>
+
+                        <p class="mt-3">¿No tiene una cuenta? <a href="{{ route('register') }}"
+                                class="text-danger">Registrarse</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-primary py-4 px-4 px-xl-5 text-center text-md-start">
+        <div class="text-white mb-3">Copyright © 2023. Todos los Derechos Reservados.</div>
+        <div>
+            <a href="https://www.facebook.com/acamijunin" class="text-white me-4"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/Amijunin?t=Nfu7mqVTk-baEWbxQL-pWg&s=09" class="text-white me-4"><i
+                    class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/amijunin/" class="text-white me-4"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/AMIJUNIN" class="text-white"><i class="fab fa-telegram"></i></a>
+        </div>
+    </footer>
+
+    <!-- Bibliotecas JavaScript de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
+
+
+{{-- <!doctype html>
 <html lang="es">
 
 <head>
@@ -39,7 +122,7 @@
 
                             <button type="button" class="btn btn-primary btn-floating mx-1">
                                 <i class="fab fa-linkedin-in"></i>
-                            </button> --}}
+                            </button> --}
                         </div>
 
                         <div class="divider d-flex align-items-center my-4"></div>
@@ -67,7 +150,7 @@
                                     Recuerdame
                                 </label>
                             </div>
-                            {{-- <a href="#!" class="text-body">Perdio su Contraseña?</a> --}}
+                            {{-- <a href="#!" class="text-body">Perdio su Contraseña?</a> --}
                         </div>
 
                         <div class="text-center text-lg-center mt-4 pt-2">

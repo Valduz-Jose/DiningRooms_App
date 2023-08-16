@@ -13,11 +13,13 @@ class VivereSeeder extends Seeder
      */
     public function run(): void
     {
-        $vivere = new Vivere;
-        $vivere->name = 'Carne';
-        $vivere->cantidad = 15;
-        $vivere->unidad_medida = 'Kilos';
-        $vivere->ubicacion = 'bramon';
-        $vivere->save();
+        Vivere::factory(50)->create();
     }
 }
+
+        // $vivere = new Vivere;
+        // $vivere->name = 'Carne';
+        // $vivere->cantidad = 15;
+        // $vivere->unidad_medida = 'Kilos';
+        // $vivere->ubicacion = 'bramon';
+        // $vivere->save();
