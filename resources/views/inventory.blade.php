@@ -1,7 +1,76 @@
 @extends('layouts.app')
 
-@section('title', 'Home')
+@section('title', 'Inventario')
+
 
 @section('content')
-    <h1>Bienvenido a Inventario</h1>
+    <div class="container">
+        <h1>Bienvenido a Inventario</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-header bg-info text-white">
+                        Inventario
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Unidad de Medida</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Aquí se llenarían los datos del inventario desde la base de datos -->
+                                <tr>
+                                    <td>Producto 1</td>
+                                    <td>10</td>
+                                    <td>Unidad</td>
+                                </tr>
+                                <tr>
+                                    <td>Producto 2</td>
+                                    <td>5</td>
+                                    <td>Kilogramo</td>
+                                </tr>
+                                <!-- ... -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-header bg-info text-white">
+                        Últimos Productos Usados
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Aquí se mostrarían los últimos productos usados desde la base de datos -->
+                                <tr>
+                                    <td>Producto 1</td>
+                                    <td>2</td>
+                                    <td>2023-08-10</td>
+                                </tr>
+                                <tr>
+                                    <td>Producto 2</td>
+                                    <td>1</td>
+                                    <td>2023-08-09</td>
+                                </tr>
+                                <!-- ... -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
