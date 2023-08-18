@@ -23,7 +23,14 @@
                             </thead>
                             <tbody>
                                 <!-- Aquí se llenarían los datos del inventario desde la base de datos -->
-                                <tr>
+                                @foreach ($viveres as $vivere)
+                                    <tr>
+                                        <td>{{ $vivere->name }}</td>
+                                        <td>{{ $vivere->cantidad }}</td>
+                                        <td>{{ $vivere->unidad_medida }}</td>
+                                    </tr>
+                                @endforeach
+                                {{-- <tr>
                                     <td>Producto 1</td>
                                     <td>10</td>
                                     <td>Unidad</td>
@@ -32,10 +39,14 @@
                                     <td>Producto 2</td>
                                     <td>5</td>
                                     <td>Kilogramo</td>
-                                </tr>
+                                </tr> --}}
                                 <!-- ... -->
                             </tbody>
                         </table>
+                        <div class="d-flex justify-content-center">
+                            {{ $viveres->links('pagination.bootstrap') }}
+                        </div>
+
                     </div>
                 </div>
             </div>
