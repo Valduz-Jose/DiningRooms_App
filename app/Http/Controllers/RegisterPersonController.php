@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Persona;
+use Faker\Provider\ar_EG\Person;
 use Illuminate\Http\Request;
 
 class RegisterPersonController extends Controller
@@ -23,6 +25,9 @@ class RegisterPersonController extends Controller
      */
     public function index()
     {
-        return view('RegisterPerson');
+        // Crud Listar y leer registros
+        $personas = Persona::paginate();
+
+        return view('RegisterPerson', compact('personas'));
     }
 }

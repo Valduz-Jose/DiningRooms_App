@@ -30,17 +30,6 @@
                                         <td>{{ $vivere->unidad_medida }}</td>
                                     </tr>
                                 @endforeach
-                                {{-- <tr>
-                                    <td>Producto 1</td>
-                                    <td>10</td>
-                                    <td>Unidad</td>
-                                </tr>
-                                <tr>
-                                    <td>Producto 2</td>
-                                    <td>5</td>
-                                    <td>Kilogramo</td>
-                                </tr> --}}
-                                <!-- ... -->
                             </tbody>
                         </table>
                         <div class="d-flex justify-content-center">

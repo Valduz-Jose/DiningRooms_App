@@ -61,6 +61,42 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-header bg-info text-white">
+                        Personas en Sistema
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Edad</th>
+                                    <th>Sexo</th>
+                                    <th>Fecha_nacimiento</th>
+                                    <th>Foto</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Aquí se llenarían los datos del inventario desde la base de datos -->
+                                @foreach ($personas as $person)
+                                    <tr>
+                                        <td>{{ $person->name }}</td>
+                                        <td>{{ $person->edad }}</td>
+                                        <td>{{ $person->sexo }}</td>
+                                        <td>{{ $person->fecha_nacimiento }}</td>
+                                        <td>{{ $person->ruta_foto }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <div class="d-flex justify-content-center">
+                            {{ $personas->links('pagination.bootstrap') }}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
