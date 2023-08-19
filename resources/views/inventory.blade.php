@@ -18,7 +18,6 @@
                                 <tr>
                                     <th>Producto</th>
                                     <th>Cantidad</th>
-                                    <th>Unidad de Medida</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -26,8 +25,7 @@
                                 @foreach ($viveres as $vivere)
                                     <tr>
                                         <td>{{ $vivere->name }}</td>
-                                        <td>{{ $vivere->cantidad }}</td>
-                                        <td>{{ $vivere->unidad_medida }}</td>
+                                        <td>{{ $vivere->cantidad }} {{ $vivere->unidad_medida }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -49,25 +47,25 @@
                             <thead>
                                 <tr>
                                     <th>Producto</th>
-                                    <th>Cantidad</th>
+                                    {{-- <th>Cantidad</th> --}}
                                     <th>Fecha</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <!-- Aquí se mostrarían los últimos productos usados desde la base de datos -->
-                                <tr>
-                                    <td>Producto 1</td>
-                                    <td>2</td>
-                                    <td>2023-08-10</td>
-                                </tr>
-                                <tr>
-                                    <td>Producto 2</td>
-                                    <td>1</td>
-                                    <td>2023-08-09</td>
-                                </tr>
+                                @foreach ($viveres as $vivere)
+                                    <tr>
+                                        <td>{{ $vivere->name }}</td>
+                                        {{-- <td>{{ $vivere->unidad_medida }}</td> --}}
+                                        <td>{{ $vivere->updated_at }}</td>
+                                    </tr>
+                                @endforeach
                                 <!-- ... -->
                             </tbody>
                         </table>
+                        <div class="d-flex justify-content-center">
+                            {{ $viveres->links('pagination.bootstrap') }}
+                        </div>
                     </div>
                 </div>
             </div>

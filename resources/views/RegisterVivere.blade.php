@@ -15,16 +15,17 @@
                         <form>
                             <div class="form-group">
                                 <label for="selectEntrada">Seleccione el alimento:</label>
-                                <select class="form-control" id="selectEntrada">
+                                <select class="form-control" name="name" id="selectEntrada">
                                     <!-- Opciones para la selección de alimentos desde la base de datos -->
-                                    <option>Alimento 1</option>
-                                    <option>Alimento 2</option>
+                                    @foreach ($viveres as $vivere)
+                                        <option>{{ $vivere->name }}</option>
+                                    @endforeach
                                     <!-- ... -->
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="cantidadEntrada">Cantidad:</label>
-                                <input type="number" class="form-control" id="cantidadEntrada"
+                                <input type="number" class="form-control" name="cantidad" id="cantidadEntrada"
                                     placeholder="Ingrese la cantidad" min="0">
                             </div><br>
                             <button type="submit" class="btn btn-info">Guardar Entrada</button>
@@ -43,8 +44,10 @@
                                 <label for="selectSalida">Seleccione el alimento:</label>
                                 <select class="form-control" id="selectSalida">
                                     <!-- Opciones para la selección de alimentos desde la base de datos -->
-                                    <option>Alimento 1</option>
-                                    <option>Alimento 2</option>
+                                    <!-- Opciones para la selección de alimentos desde la base de datos -->
+                                    @foreach ($viveres as $vivere)
+                                        <option>{{ $vivere->name }}</option>
+                                    @endforeach
                                     <!-- ... -->
                                 </select>
                             </div>
@@ -67,11 +70,12 @@
                     Platos Servidos Hoy
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form action="{{ route('platosstore') }}" method="POST">
+                        @csrf
                         <div class="form-group">
                             <label for="platosServidos">Número de platos servidos:</label>
                             <input type="number" class="form-control" id="platosServidos"
-                                placeholder="Ingrese el número de platos" min="0">
+                                placeholder="Ingrese el número de platos" name="platos_diarios" min="0">
                         </div><br>
                         <button type="submit" class="btn btn-info">Guardar</button>
                     </form>

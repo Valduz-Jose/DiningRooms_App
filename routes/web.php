@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\RegisterPersonController;
 use App\Http\Controllers\RegisterVivereController;
@@ -28,6 +29,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/registervivere', [RegisterVivereController::class, 'index'])->name('registervivere');
+Route::post('/registervivere', [RegisterVivereController::class, 'store'])->name('platosstore');
 Route::get('/registerperson', [RegisterPersonController::class, 'index'])->name('registerperson');
+Route::post('/resgisterperson', [RegisterPersonController::class, 'store'])->name('registerpersonstore');
 Route::get('/statistic', [StatisticController::class, 'index'])->name('statistic');
 Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory');

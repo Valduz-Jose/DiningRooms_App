@@ -12,34 +12,36 @@
                         Agregar Nueva Persona
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="{{ route('registerpersonstore') }}" method="POST">
+                            @csrf
                             <div class="form-group">
                                 <label for="nombre">Nombre:</label>
-                                <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre">
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Ingrese el nombre">
                             </div>
                             <div class="form-group">
                                 <label for="edad">Edad:</label>
-                                <input type="number" class="form-control" id="edad" placeholder="Ingrese la edad"
-                                    min="0">
+                                <input type="number" class="form-control" id="edad" name="edad"
+                                    placeholder="Ingrese la edad" min="0">
                             </div>
                             <div class="form-group">
                                 <label for="sexo">Sexo:</label>
-                                <select class="form-control" id="sexo">
-                                    <option value="masculino">Masculino</option>
-                                    <option value="femenino">Femenino</option>
+                                <select class="form-control" id="sexo" name="sexo">
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Femenino</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-                                <input type="date" class="form-control" id="fechaNacimiento">
+                                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
                             </div>
                             <div class="form-group"><br>
                                 <label for="foto">Foto:</label>
-                                <input type="file" class="form-control-file" id="foto">
+                                <input type="file" class="form-control-file" id="ruta_foto" name="ruta_foto">
                             </div>
                             <div class="form-group"><br>
                                 <label for="ubicacion">Ubicación:</label>
-                                <select class="form-control" id="ubicacion">
+                                <select class="form-control" id="ubicacion" name="ubicacion">
                                     <option value="bramon">Bramon</option>
                                     <option value="palmita">Palmita</option>
                                     <option value="5patio">5 Patio</option>

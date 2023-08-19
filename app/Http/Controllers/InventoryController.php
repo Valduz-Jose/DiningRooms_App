@@ -25,7 +25,7 @@ class InventoryController extends Controller
     public function index()
     {
         // Crud Listar y leer registros
-        $viveres = Vivere::paginate();
+        $viveres = Vivere::orderBy('updated_at', 'desc')->paginate();
 
         return view('inventory', compact('viveres'));
     }
