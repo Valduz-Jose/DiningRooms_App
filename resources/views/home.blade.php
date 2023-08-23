@@ -5,7 +5,7 @@
 @section('content')
 
 
-    <h1 class="text-center">Platos servidos: +1.000.000</h1>
+    <h1 class="text-center">{{ ucwords($comedore->name) }} Platos servidos: {{ $comedore->platos_acumulados }}</h1>
 
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">

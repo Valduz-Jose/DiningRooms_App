@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Persona>
@@ -24,8 +25,8 @@ class PersonaFactory extends Factory
             'edad' => $this->faker->numberBetween(18, 65),
             'sexo' => $this->faker->randomElement(['M', 'F']),
             'fecha_nacimiento' => $this->faker->date,
-            'ruta_foto' => $photoUrl, // Genera una URL aleatoria de foto
             'ubicacion' => $this->faker->randomElement(['bramon', 'palmita', '5patio']),
+            'foto' => $this->faker->name,
         ];
     }
 }

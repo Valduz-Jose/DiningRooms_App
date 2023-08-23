@@ -40,10 +40,13 @@ class RegisterVivereController extends Controller
         $totalPlatosDiarios = 0;
 
         foreach ($comedorRecords as $registro) {
-            $totalPlatosDiarios += $registro->platos_diarios;
+            // return  auth()->user()->ubicacion;
+            if ($registro->name == auth()->user()->ubicacion) {
+                $totalPlatosDiarios += $registro->platos_diarios;
+            }
         }
         $comedor->platos_acumulados = $totalPlatosDiarios;
-
+        // return "No Funciono";
         $comedor->save();
         return redirect()->route('registervivere');
     }

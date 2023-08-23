@@ -18,6 +18,7 @@
                                 <tr>
                                     <th>Producto</th>
                                     <th>Cantidad</th>
+                                    <th>ubicacion</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -26,6 +27,7 @@
                                     <tr>
                                         <td>{{ $vivere->name }}</td>
                                         <td>{{ $vivere->cantidad }} {{ $vivere->unidad_medida }}</td>
+                                        <td>{{ $vivere->ubicacion }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -49,6 +51,7 @@
                                     <th>Producto</th>
                                     {{-- <th>Cantidad</th> --}}
                                     <th>Fecha</th>
+                                    <th>ubicacion</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -58,6 +61,7 @@
                                         <td>{{ $vivere->name }}</td>
                                         {{-- <td>{{ $vivere->unidad_medida }}</td> --}}
                                         <td>{{ $vivere->updated_at }}</td>
+                                        <td>{{ $vivere->ubicacion }}</td>
                                     </tr>
                                 @endforeach
                                 <!-- ... -->

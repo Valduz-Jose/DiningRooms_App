@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 class Comedore extends Model
 {
     use HasFactory;
-    protected function name(): Attribute
-    {
-        return new Attribute(
-            get: fn ($value) => ucwords($value),
-            set: fn ($value) => strtolower($value)
-        );
-    }
+    // protected function name(): Attribute
+    // {
+    //     return new Attribute(
+    //         get: fn ($value) => ucwords($value),
+    //         set: fn ($value) => strtolower($value)
+    //     );
+    // }
 }

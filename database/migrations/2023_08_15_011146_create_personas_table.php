@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('edad');
             $table->enum('sexo', ['M', 'F']); // 'M' para masculino, 'F' para femenino
             $table->date('fecha_nacimiento');
-            $table->string('ruta_foto')->nullable();
+            $table->string('foto')->nullable();
             $table->enum('ubicacion', ['bramon', 'palmita', '5patio']);
             $table->timestamps();
         });

@@ -31,6 +31,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/registervivere', [RegisterVivereController::class, 'index'])->name('registervivere');
 Route::post('/registervivere', [RegisterVivereController::class, 'store'])->name('platosstore');
 Route::get('/registerperson', [RegisterPersonController::class, 'index'])->name('registerperson');
+Route::get('/registerpersonedit', [RegisterPersonController::class, 'index'])->name('PersonEdit');
+Route::put('/registerpersonedit{persona}', [RegisterPersonController::class, 'update'])->name('PersonEditUpdate');
+Route::get('/registerperson/{persona}/edit', [RegisterPersonController::class, 'edit'])->name('registerpersonedit');
 Route::post('/resgisterperson', [RegisterPersonController::class, 'store'])->name('registerpersonstore');
 Route::get('/statistic', [StatisticController::class, 'index'])->name('statistic');
 Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory');
