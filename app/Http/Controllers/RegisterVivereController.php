@@ -24,11 +24,16 @@ class RegisterVivereController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index()
     {
-        $viveres = Vivere::all();
+        $ubicacionUsuario = auth()->user()->ubicacion;
+        $viveres = Vivere::where('ubicacion', $ubicacionUsuario)
+            ->orderBy('id', 'desc')
+            ->get(); // Agregar este método para ejecutar la consulta y obtener los resultados
         return view('RegisterVivere', compact('viveres'));
     }
+
     public function store(Request $request)
     {
         $comedor = new Comedore();
@@ -49,5 +54,33 @@ class RegisterVivereController extends Controller
         // return "No Funciono";
         $comedor->save();
         return redirect()->route('registervivere');
+    }
+    public function update(Request $request, $id)
+    {
+        $vivere = Vivere::findOrFail($id);
+
+        $request->validate([
+            'cantidad' => 'required|numeric|min:1'
+        ]);
+
+        // Actualizar la cantidad del alimento restando la cantidad ingresada
+        $vivere->cantidad += $request->cantidad;
+        $vivere->save();
+
+        return redirect()->route('registervivere')->with('success', 'Cantidad actualizada exitosamente.');
+    }
+    public function update2(Request $request, $id)
+    {
+        $vivere = Vivere::findOrFail($id);
+
+        $request->validate([
+            'cantidad' => 'required|numeric|min:1'
+        ]);
+
+        // Actualizar la cantidad del alimento restando la cantidad ingresada
+        $vivere->cantidad -= $request->cantidad;
+        $vivere->save();
+
+        return redirect()->route('registervivere')->with('success', 'Cantidad actualizada exitosamente.');
     }
 }

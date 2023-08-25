@@ -4,83 +4,89 @@
 
 @section('content')
     <div class="container">
-        <h1>Bienvenido a Registro de viveres</h1>
+        <h1 class="mt-4">Bienvenido a Registro de viveres</h1>
         <div class="row">
-            <div class="col-md-6">
-                <div class="card mb-3">
+            <div class="col-md-4">
+                <div class="card mb">
                     <div class="card-header bg-info text-white">
                         Entrada de Alimentos
                     </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="selectEntrada">Seleccione el alimento:</label>
-                                <select class="form-control" name="name" id="selectEntrada">
-                                    <!-- Opciones para la selección de alimentos desde la base de datos -->
-                                    @foreach ($viveres as $vivere)
-                                        <option>{{ $vivere->name }}</option>
-                                    @endforeach
-                                    <!-- ... -->
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="cantidadEntrada">Cantidad:</label>
-                                <input type="number" class="form-control" name="cantidad" id="cantidadEntrada"
-                                    placeholder="Ingrese la cantidad" min="0">
-                            </div><br>
-                            <button type="submit" class="btn btn-info">Guardar Entrada</button>
-                        </form>
-                    </div>
+                    @foreach ($viveres as $vivere)
+                        <div class="card-body">
+                            <form action="{{ route('viveres.actualiza', $vivere->id) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label class="col-form-label">{{ $vivere->name }}</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="number" class="form-control" value="cantidad" name="cantidad"
+                                            id="cantidadEntrada" placeholder="#">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button type="submit" class="btn btn-info">Entran</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    @endforeach
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card mb-3">
+
+            <div class="col-md-4">
+                <div class="card mb">
                     <div class="card-header bg-info text-white">
                         Salida de Alimentos
                     </div>
+                    @foreach ($viveres as $vivere)
+                        <div class="card-body">
+                            <form action="{{ route('viveres.actualizados', $vivere->id) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label class="col-form-label">{{ $vivere->name }}</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="number" class="form-control" value="cantidad" name="cantidad"
+                                            id="cantidadEntrada" placeholder="#">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button type="submit" class="btn btn-info">Salen</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-header bg-info text-white">
+                        Platos Servidos Hoy
+                    </div>
                     <div class="card-body">
-                        <form>
+                        <form action="{{ route('platosstore') }}" method="POST">
+                            @csrf
                             <div class="form-group">
-                                <label for="selectSalida">Seleccione el alimento:</label>
-                                <select class="form-control" id="selectSalida">
-                                    <!-- Opciones para la selección de alimentos desde la base de datos -->
-                                    <!-- Opciones para la selección de alimentos desde la base de datos -->
-                                    @foreach ($viveres as $vivere)
-                                        <option>{{ $vivere->name }}</option>
-                                    @endforeach
-                                    <!-- ... -->
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="cantidadSalida">Cantidad:</label>
-                                <input type="number" class="form-control" id="cantidadSalida"
-                                    placeholder="Ingrese la cantidad" min="0">
+                                <label for="platosServidos">Número de platos servidos:</label>
+                                <input type="number" class="form-control" id="platosServidos"
+                                    placeholder="Ingrese el número de platos" name="platos_diarios" min="0">
                             </div><br>
-                            <button type="submit" class="btn btn-info">Guardar Salida</button>
+                            <button type="submit" class="btn btn-info">Guardar</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card mb-3">
-                <div class="card-header bg-info text-white">
-                    Platos Servidos Hoy
-                </div>
-                <div class="card-body">
-                    <form action="{{ route('platosstore') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <label for="platosServidos">Número de platos servidos:</label>
-                            <input type="number" class="form-control" id="platosServidos"
-                                placeholder="Ingrese el número de platos" name="platos_diarios" min="0">
-                        </div><br>
-                        <button type="submit" class="btn btn-info">Guardar</button>
-                    </form>
-                </div>
-            </div>
+
+        <!-- Espacio vacío -->
+        <div class="row">
+            <div class="col-md-12 mt-4"></div>
         </div>
     </div>
 @endsection

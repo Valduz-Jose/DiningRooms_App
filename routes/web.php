@@ -30,6 +30,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/registervivere', [RegisterVivereController::class, 'index'])->name('registervivere');
 Route::post('/registervivere', [RegisterVivereController::class, 'store'])->name('platosstore');
+Route::put('/registervivereActualiza/{id}', [RegisterVivereController::class, 'update'])->name('viveres.actualiza');
+Route::put('/registervivereActualizados/{id}', [RegisterVivereController::class, 'update2'])->name('viveres.actualizados');
 Route::get('/registerperson', [RegisterPersonController::class, 'index'])->name('registerperson');
 Route::get('/registerpersonedit', [RegisterPersonController::class, 'index'])->name('PersonEdit');
 Route::put('/registerpersonedit{persona}', [RegisterPersonController::class, 'update'])->name('PersonEditUpdate');

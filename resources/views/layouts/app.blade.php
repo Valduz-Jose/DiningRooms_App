@@ -52,23 +52,40 @@
                             href="{{ route('statistic') }}">Estadisticas</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ auth()->user()->name }}
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                        @if (Route::has('login'))
+                            @auth
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ auth()->user()->name }}
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                                document.getElementById('logout-form').submit();">
+                                                {{ __('Logout') }}
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                class="d-none">
+                                                @csrf
+                                            </form>
+                                        </li>
+                                    @else
+                                        <a href="{{ route('login') }}"
+                                            class="ml-auto font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
+                                            in</a>
+
+                                        @if (Route::has('register'))
+                                            <a href="{{ route('register') }}"
+                                                class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                                        @endif
+                                    @endauth
+                                </div>
+                        @endif
+
+                </ul>
+                </li>
                 </ul>
             </div>
         </div>
@@ -114,9 +131,17 @@
 </body>
 <!-- Pie de página -->
 <footer class="bg-info py-4 text-white text-center">
-    <p class="mb-0">Bienvenido {{ auth()->user()->name }}</p>
-    <p class="mb-0">Ubicación {{ auth()->user()->ubicacion }}</p>
-    <p class="mb-0">Todos los derechos reservados &copy; {{ date('Y') }}</p>
+    @if (Route::has('login'))
+        <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+            @auth
+                <p class="mb-0">Bienvenido {{ auth()->user()->name }}</p>
+                <p class="mb-0">Ubicación {{ auth()->user()->ubicacion }}</p>
+                <p class="mb-0">Todos los derechos reservados &copy; {{ date('Y') }}</p>
+            @else
+                <p class="mb-0">Todos los derechos reservados &copy; {{ date('Y') }}</p>
+            @endauth
+        </div>
+    @endif
     <div>
         <a href="https://www.facebook.com/acamijunin" class="text-white me-4"><i class="fab fa-facebook-f"></i></a>
         <a href="https://twitter.com/Amijunin?t=Nfu7mqVTk-baEWbxQL-pWg&s=09" class="text-white me-4"><i

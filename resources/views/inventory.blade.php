@@ -18,7 +18,7 @@
                                 <tr>
                                     <th>Producto</th>
                                     <th>Cantidad</th>
-                                    <th>ubicacion</th>
+                                    {{-- <th>ubicacion</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -27,7 +27,7 @@
                                     <tr>
                                         <td>{{ $vivere->name }}</td>
                                         <td>{{ $vivere->cantidad }} {{ $vivere->unidad_medida }}</td>
-                                        <td>{{ $vivere->ubicacion }}</td>
+                                        {{-- <td>{{ $vivere->ubicacion }}</td> --}}
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -51,24 +51,24 @@
                                     <th>Producto</th>
                                     {{-- <th>Cantidad</th> --}}
                                     <th>Fecha</th>
-                                    <th>ubicacion</th>
+                                    {{-- <th>ubicacion</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
                                 <!-- Aquí se mostrarían los últimos productos usados desde la base de datos -->
-                                @foreach ($viveres as $vivere)
+                                @foreach ($viveres2 as $vivere)
                                     <tr>
                                         <td>{{ $vivere->name }}</td>
                                         {{-- <td>{{ $vivere->unidad_medida }}</td> --}}
                                         <td>{{ $vivere->updated_at }}</td>
-                                        <td>{{ $vivere->ubicacion }}</td>
+                                        {{-- <td>{{ $vivere->ubicacion }}</td> --}}
                                     </tr>
                                 @endforeach
                                 <!-- ... -->
                             </tbody>
                         </table>
                         <div class="d-flex justify-content-center">
-                            {{ $viveres->links('pagination.bootstrap') }}
+                            {{ $viveres2->links('pagination.bootstrap') }}
                         </div>
                     </div>
                 </div>

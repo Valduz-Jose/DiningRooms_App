@@ -1,4 +1,23 @@
-<!DOCTYPE html>
+@extends('layouts.app')
+
+@section('title', 'Bienvenido')
+
+@section('content')
+    <div class="container text-center py-5">
+        <h1 class="display-4">¡Bienvenido al Comedor Comunitario!</h1>
+        <p class="lead">Brindamos alimentación nutritiva para todos</p>
+        <img src="{{ asset('images/welcome-image.jpg') }}" alt="Comedor Comunitario" class="img-fluid my-4">
+        <p>En nuestro comedor, trabajamos para proporcionar alimentos de calidad a nuestra comunidad. Nuestra misión es
+            asegurarnos de que nadie pase hambre y que todos reciban una comida nutritiva.</p>
+        @auth
+            <h3>Se Parte del Cambio</h3>
+        @else
+            <a href="{{ route('registervivere') }}" class="btn btn-primary btn-lg">Registrarse</a>
+        @endauth
+    </div>
+@endsection
+
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -137,4 +156,4 @@
             </div>
         </div>
     </body>
-</html>
+</html> --}}

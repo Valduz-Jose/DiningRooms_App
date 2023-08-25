@@ -27,9 +27,12 @@ class InventoryController extends Controller
         // Crud Listar y leer registros
         $ubicacionUsuario = auth()->user()->ubicacion;
         $viveres = Vivere::where('ubicacion', $ubicacionUsuario)
-            ->orderBy('updated_at', 'desc')
+            ->orderBy('cantidad', 'asc')
             ->paginate();
 
-        return view('inventory', compact('viveres'));
+        $viveres2 = Vivere::where('ubicacion', $ubicacionUsuario)
+            ->orderBy('updated_at', 'desc')
+            ->paginate();
+        return view('inventory', compact('viveres'), compact('viveres2'));
     }
 }
